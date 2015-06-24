@@ -1,11 +1,12 @@
 require "bush_viper/version"
 require "faraday"
-require "pry"
+require "multi_json"
+require "ostruct"
+require "date"
 
 module BushViper
   module Mendeley
     class API
-
       BASE_URL = "https://api.mendeley.com/"
 
       def initialize(token)
@@ -13,7 +14,9 @@ module BushViper
       end
 
       def documents
-        get("documents")
+        MultiJson.load(get("documents")).map do |doc|
+          OpenStruct.new(doc)
+        end
       end
 
       private
