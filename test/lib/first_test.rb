@@ -8,4 +8,9 @@ describe BushViper::Mendeley::API do
   it "initializes with an access_token" do
     BushViper::Mendeley::API.new("token").send(:token).must_equal "token"
   end
+
+  it "return empty array if no documents fetched", :vcr do
+    bv = BushViper::Mendeley::API.new(ENV["ACCESS_TOKEN"])
+    bv.documents.must_equal []
+  end
 end
