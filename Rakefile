@@ -11,3 +11,10 @@ Rake::TestTask.new do |t|
   t.warning = true
   t.verbose = true
 end
+
+namespace :test do
+  desc "Clear all test VCR recordings"
+  task :eject do
+    system "rm -rf test/cassettes"
+  end
+end
