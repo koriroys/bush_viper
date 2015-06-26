@@ -4,10 +4,10 @@ TODO: Write a gem description
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to the Gemfile of your application:
 
 ```ruby
-gem 'bush_viper'
+gem "bush_viper"
 ```
 
 And then execute:
@@ -26,7 +26,7 @@ TODO: Write usage instructions here
 
 1. Fork it ( https://github.com/koriroys/bush_viper/fork )
 2. Create your feature branch (`git checkout -b your-initials/your-new-feature`)
-3. Commit your changes (`git commit -am 'Reasoning for feature'`)
+3. Commit your changes (`git commit -am "Reasoning for feature"`)
 4. Push to the branch (`git push origin your-initials/your-new-feature`)
 5. Create a new Pull Request
 
