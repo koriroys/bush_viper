@@ -1,6 +1,8 @@
 # BushViper
 
-TODO: Write a gem description
+![](https://github.com/koriroys/images/blob/master/iStock_000053428128_Medium_bush_viper.jpg)
+
+Image credits: [Mark Kostich](http://www.istockphoto.com/photo/african-bush-viper-venomous-snake-53428128)
 
 ## Installation
 
