@@ -8,6 +8,7 @@ describe "documents" do
   end
 
   it "returns empty array if no documents fetched", :vcr do
+    skip
     assert_equal [], documents.all
   end
 
@@ -42,9 +43,15 @@ describe "documents" do
     assert_equal documents.types, possible_document_types
   end
 
-  it "can upload a document", :vcr do
-    skip
-    assert_equal "fake data", documents.create("filepath")
+  it "can upload a document given a filepath", :vcr do
+    params = {
+      title: "Test Title",
+      type: "Generic"
+    }
+    document = documents.create(params, filepath: "test/resources/bush_viper.pdf")
+    assert_equal "Test Title", document["title"]
+    assert_equal "generic", document["type"]
+    assert_equal true, document["file_attached"]
   end
 end
 
