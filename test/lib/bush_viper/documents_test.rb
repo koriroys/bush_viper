@@ -53,5 +53,16 @@ describe "documents" do
     assert_equal "generic", document["type"]
     assert_equal true, document["file_attached"]
   end
+
+  it "can upload a document given a url", :vcr do
+    params = {
+      title: "Super Test Title",
+      type: "Journal"
+    }
+    document = documents.create(params, url: "https://raw.githubusercontent.com/koriroys/bush_viper/master/test/resources/bush_viper.pdf")
+    assert_equal "Super Test Title", document["title"]
+    assert_equal "journal", document["type"]
+    assert_equal true, document["file_attached"]
+  end
 end
 
