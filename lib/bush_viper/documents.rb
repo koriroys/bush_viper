@@ -11,15 +11,16 @@ class Documents
     connection.get("document_types")
   end
 
-  def create(params, filepath: nil, url: nil)
+  def create(params, filepath: nil, url: nil, filename: nil)
     if filepath
       File.open(filepath, "rb") do |file|
-        result = connection.post("documents/", file.read, File.basename(filepath))
+        result = connection.post("documents/", file.read, filename || File.basename(filepath))
         connection.patch(%Q{documents/#{result["id"]}}, params)
       end
     elsif url
-      content = Net::HTTP.get(URI.parse(url))
-      result = connection.post("documents/", content, File.basename(url))
+      uri = URI.parse(url)
+      content = Net::HTTP.get(uri)
+      result = connection.post("documents/", content, filename || File.basename(uri.path))
       connection.patch(%Q{documents/#{result["id"]}}, params)
     end
   end

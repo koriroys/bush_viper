@@ -20,6 +20,7 @@ class Connection
       request.url endpoint
       request.headers["Content-Disposition"] = %Q{attachment; filename="#{filename}"}
       request.headers["Authorization"] = "Bearer #{token}"
+      request.headers["Content-Type"] = "application/pdf"
       request.body = file
     end
     MultiJson.load(result.body)

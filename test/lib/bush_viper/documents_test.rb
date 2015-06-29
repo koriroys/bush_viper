@@ -64,5 +64,17 @@ describe "documents" do
     assert_equal "journal", document["type"]
     assert_equal true, document["file_attached"]
   end
+
+  it "sets the document title correctly, even with query params", :vcr do
+    params = {
+      type: "Journal"
+    }
+    document = documents.create(params, url: "https://raw.githubusercontent.com/koriroys/bush_viper/master/test/resources/bush_viper.pdf?idontknowwhatImdoing=true/false")
+    puts document["title"]
+    # mendeley api strips off the file extension and makes that the title
+    assert_equal "bush_viper", document["title"]
+    assert_equal "journal", document["type"]
+    assert_equal true, document["file_attached"]
+  end
 end
 
