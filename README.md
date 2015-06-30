@@ -44,7 +44,7 @@ Create a .env file in the main directory, then make it look like this:
 
 Then, to run the tests:
 
-$ rake
+    $ rake
 
 The first time you run the tests, it will make calls to the Mendeley API.
 After that, VCR will kick in and the recorded cassetes will make the tests
