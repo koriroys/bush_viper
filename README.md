@@ -40,7 +40,7 @@ Create a .env file in the main directory, then make it look like this:
 
     ACCESS_TOKEN=<access_token>
 
-(<access_token> being the token you just copied)
+(\<access_token\> being the token you just copied)
 
 Then, to run the tests:
 
